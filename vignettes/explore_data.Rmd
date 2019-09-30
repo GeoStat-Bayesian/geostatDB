@@ -1,0 +1,87 @@
+---
+title: "explore_data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{explore_data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(geostatDB)
+library(ggplot2)
+library(dplyr)
+```
+
+Now we can import the data from WWHYPDA using the internal `getData` function
+
+```{r}
+df <- geostatDB::getData()
+```
+
+After that, we check whether the import was successful
+
+```{r}
+dim(df)
+```
+
+The dimensions should be 20523 and 39, since this is the full WWHYPDA database.
+
+Now let us create a data frame for eventually plotting some of the data
+
+```{r}
+df_porosity <- df %>%
+  filter(param_name == 'porosity') %>% # select only measurements of porosity
+  filter(site_id %in% c('7', '8', '98', '100', '101', '102')) %>% # select these site IDs
+  select(site_id, val) %>% # select the columns site_id and val
+  mutate(site_id = factor(site_id,
+                          levels = c('7', '8', '98', '100', '101', '102'))) # make site_id a factor
+```
+
+To that end, we select only data on porosity from a number of selected sites and make a kernel density plot
+
+```{r}
+kde_plot <- ggplot(df_porosity,
+                   aes(x = val,
+                       fill = site_id)) +
+            geom_density() +
+            facet_grid(site_id ~ .) + 
+            ggtitle('Kernel Density Estimates of Porosity in Six Sites')
+kde_plot
+```
+
+Now, let us select the hydraulic condictivity 
+
+```{r}
+df_hc <- df %>%
+  filter(param_name == 'hydraulic conductivity') %>% 
+  filter(rt_name %in% c('Basalt',
+                        'Chalk',
+                        'Coal',
+                        'Greensand',
+                        'Limestone')) %>%
+  select(rt_name, val) %>%
+  mutate(rt_name = factor(rt_name))
+```
+
+and make a histogram 
+
+```{r}
+histogram_plot <- ggplot(df_hc,
+                         aes(x = log10(val),
+                             fill = rt_name)) +
+  geom_histogram(alpha=0.7) +
+  xlab('log(K)') +
+  ggtitle('Distribution of Hydraulic Conductivity in Different Rock Types')
+
+histogram_plot
+```
+
+

@@ -1,0 +1,28 @@
+Package: geostatDB
+Type: Package
+Title: R package to import geostatistical data from the World-Wide 
+	Hydrogeological Parameters DAtabase (WWHYPDA)
+Version: 0.1.0
+Authors@R: c(
+	person("Falk", "Hesse", email = "falk.hesze@gmail.com", role = "cre"),
+	person("Nura", "Kawa", email = "nkawa@berkeley.edu", role = "aut"),
+	person("Karina", "Cucchi", email = "karina.cucchi@berkeley.edu", role = "aut"))
+Maintainer: Falk Hesse <falk.hesze@gmail.com>
+Description: The World-Wide Hydrogeological Parameters DAtabase (WWHYPDA) is 
+	an online database for the collection of geostatistical data relevant 
+	to stochastic hydrogeology. The geostatDB package provides an interface 
+	to this database to be used in conjuction with the exPrior package but
+	possibly other R packages as well.
+Depends:
+	R (>= 3.2.2),
+	here,
+	RSQLite
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
