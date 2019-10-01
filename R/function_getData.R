@@ -41,7 +41,7 @@ getData <- function(rockType=NULL,
     stop('Install package `here`.', call=FALSE)
   }
 
-  #db_loc = here::here('wwhypda.sqlite')
+  db_loc = here::here('data/wwhypda.sqlite')
 
   #if (file.exists(db_loc)){
   #  print('File exists!')}
@@ -50,9 +50,9 @@ getData <- function(rockType=NULL,
   # ===========================================================================
 
   con = dbConnect(SQLite(),
-                  #dbname = db_loc)
+                  dbname = db_loc)
                   #dbname="/home/fhesse/Dropbox/prior_derivation/work/geostatDB/data/wwhypda.sqlite")
-                  dbname="../data/wwhypda.sqlite")
+                  #dbname="../data/wwhypda.sqlite")
 
   # sanity checks: ensure that rock type, parameter, and site are valid
   # ===========================================================================

@@ -1,7 +1,6 @@
 Package: geostatDB
 Type: Package
-Title: R package to import geostatistical data from the World-Wide 
-	Hydrogeological Parameters DAtabase (WWHYPDA)
+Title: Interface for geostatistical data 
 Version: 0.1.0
 Authors@R: c(
 	person("Falk", "Hesse", email = "falk.hesze@gmail.com", role = "cre"),
