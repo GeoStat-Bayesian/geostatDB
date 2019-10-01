@@ -10,19 +10,6 @@
 #'@return data queried from the wwhypda database as a dataframe
 #'@examples
 #'my_data <- getData(rockType = "Sandstone, channel", param = "porosity")
-#'head(my_data)
-#'
-#'all_data <- getData()
-#'
-#'data_info <- getData(viewInfo=TRUE)
-#'
-#'lagenthal <- getData(site = "Langenthal")
-#'dim(lagenthal)
-#'
-#'porosity_of_sandstone <- getData(rockType = "Sandstone", param = "porosity")
-#'
-#'# this should raise an error:
-#'site_unavailable <- getData(site = "U.C. Berkeley")
 #'@export
 getData <- function(rockType=NULL,
                     param=NULL,
@@ -41,7 +28,8 @@ getData <- function(rockType=NULL,
     stop('Install package `here`.', call=FALSE)
   }
 
-  db_loc = here::here('data/wwhypda.sqlite')
+  #db_loc = here::here('data/wwhypda.sqlite')
+  db_loc <- system.file("extdata", "wwhypda.sqlite", package="geostatDB")
 
   #if (file.exists(db_loc)){
   #  print('File exists!')}

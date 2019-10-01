@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(geostatDB)
+library(RSQLite)
 library(ggplot2)
 library(dplyr)
 ```
@@ -23,7 +24,7 @@ library(dplyr)
 Now we can import the data from WWHYPDA using the internal `getData` function
 
 ```{r}
-df <- geostatDB::getData()
+df <- getData()
 ```
 
 After that, we check whether the import was successful

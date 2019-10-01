@@ -23,17 +23,4 @@ of site name, rock type, and parameter of interest and returns data as a datafra
 }
 \examples{
 my_data <- getData(rockType = "Sandstone, channel", param = "porosity")
-head(my_data)
-
-all_data <- getData()
-
-data_info <- getData(viewInfo=TRUE)
-
-lagenthal <- getData(site = "Langenthal")
-dim(lagenthal)
-
-porosity_of_sandstone <- getData(rockType = "Sandstone", param = "porosity")
-
-# this should raise an error:
-site_unavailable <- getData(site = "U.C. Berkeley")
 }

@@ -11,7 +11,8 @@
 viewInfo <- function()
 {
   print('RUNNING viewInfo')
-  db_loc = here::here('data/wwhypda.sqlite')
+  #db_loc = here::here('data/wwhypda.sqlite')
+  db_loc <- system.file("extdata", "wwhypda.sqlite", package="geostatDB")
 
   if (file.exists(db_loc)){
     print('database file exists.')}
