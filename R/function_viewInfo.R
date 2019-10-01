@@ -18,8 +18,8 @@ viewInfo <- function()
 
   con = dbConnect(SQLite(),
                   #dbname = db_loc)
-                  dbname="/home/fhesse/Dropbox/prior_derivation/work/geostatDB/data/wwhypda.sqlite")
-                  #dbname="../data/wwhypda.sqlite")
+                  #dbname="/home/fhesse/Dropbox/prior_derivation/work/geostatDB/data/wwhypda.sqlite")
+                  dbname="../data/wwhypda.sqlite")
   all_rocks <- DBI::dbGetQuery(con, "select distinct rt_name from rock_type;")
   all_sites <- DBI::dbGetQuery(con, "select distinct site_name, region from site_info;")
   all_params <- DBI::dbGetQuery(con, "select distinct param_name from parameter;")

@@ -51,12 +51,14 @@ getData <- function(rockType=NULL,
 
   con = dbConnect(SQLite(),
                   #dbname = db_loc)
-                  dbname="/home/fhesse/Dropbox/prior_derivation/work/geostatDB/data/wwhypda.sqlite")
-                  #dbname="../data/wwhypda.sqlite")
+                  #dbname="/home/fhesse/Dropbox/prior_derivation/work/geostatDB/data/wwhypda.sqlite")
+                  dbname="../data/wwhypda.sqlite")
 
   # sanity checks: ensure that rock type, parameter, and site are valid
   # ===========================================================================
   info <- geostatDB::viewInfo()
+
+  print(info)
 
   if (!(is.null(rockType)) && !(grepl(rockType, info$rockTypes)))
     stop (paste(rockType, "not in database. use viewInfo()=TRUE to see available rock types!"))
