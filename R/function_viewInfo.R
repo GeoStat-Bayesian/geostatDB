@@ -7,6 +7,7 @@
 #'@return list of information on wwhypda database
 #'@examples
 #'info <- viewInfo()
+#'@import DBI
 #'@export
 viewInfo <- function()
 {

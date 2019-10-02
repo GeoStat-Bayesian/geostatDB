@@ -2,3 +2,5 @@
 
 export(getData)
 export(viewInfo)
+import(DBI)
+import(RSQLite)

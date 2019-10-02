@@ -11,6 +11,7 @@
 #'@return data queried from the wwhypda database as a dataframe
 #'@examples
 #'my_data <- getData(rockType = "Sandstone, channel", param = "porosity")
+#'@import RSQLite
 #'@export
 getData <- function(rockType=NULL,
                     param=NULL,
