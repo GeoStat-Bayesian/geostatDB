@@ -11,16 +11,14 @@
 viewInfo <- function()
 {
   print('RUNNING viewInfo')
-  #db_loc = here::here('data/wwhypda.sqlite')
+
+  # connect to wwhypda sqlite
+  # ===========================================================================
   db_loc <- system.file("extdata", "wwhypda.sqlite", package="geostatDB")
+  con = dbConnect(SQLite(), dbname = db_loc)
 
-  if (file.exists(db_loc)){
-    print('database file exists.')}
-
-  con = dbConnect(SQLite(),
-                  dbname = db_loc)
-                  #dbname="/home/fhesse/Dropbox/prior_derivation/work/geostatDB/data/wwhypda.sqlite")
-                  #dbname="../data/wwhypda.sqlite")
+  # get info from wwhypda sqlite
+  # ===========================================================================
   all_rocks <- DBI::dbGetQuery(con, "select distinct rt_name from rock_type;")
   all_sites <- DBI::dbGetQuery(con, "select distinct site_name, region from site_info;")
   all_params <- DBI::dbGetQuery(con, "select distinct param_name from parameter;")
@@ -28,6 +26,8 @@ viewInfo <- function()
   colnames(all_rocks) <- NULL; colnames(all_sites) <- NULL; colnames(all_params) <- NULL
   all_sites <- na.omit(all_sites)
 
+  # disconnect from wwhypda sqlite
+  # ===========================================================================
   dbDisconnect(con) # close connection
 
   return(

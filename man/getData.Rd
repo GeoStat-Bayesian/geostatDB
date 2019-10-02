@@ -12,6 +12,8 @@ getData(rockType = NULL, param = NULL, site = NULL,
 
 \item{param}{a character indicating parameter. if left blank, data from all parameters returned.}
 
+\item{site}{the name of the site from which data are available. if left blank, data from all site returned.}
+
 \item{viewInfo}{logical; if TRUE, calls viewInfor(), returns list of rock types, parameters, and sites}
 }
 \value{

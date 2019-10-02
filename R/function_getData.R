@@ -6,6 +6,7 @@
 #'
 #'@param rockType a character indicating rock type. if left blank, data from all rock types returned.
 #'@param param a character indicating parameter. if left blank, data from all parameters returned.
+#'@param site the name of the site from which data are available. if left blank, data from all site returned.
 #'@param viewInfo logical; if TRUE, calls viewInfor(), returns list of rock types, parameters, and sites
 #'@return data queried from the wwhypda database as a dataframe
 #'@examples
@@ -22,30 +23,14 @@ getData <- function(rockType=NULL,
          call. = FALSE)
   }
 
-  # check if the data file exists
-
-  if (!requireNamespace("here", quietly = TRUE)){
-    stop('Install package `here`.', call=FALSE)
-  }
-
-  #db_loc = here::here('data/wwhypda.sqlite')
-  db_loc <- system.file("extdata", "wwhypda.sqlite", package="geostatDB")
-
-  #if (file.exists(db_loc)){
-  #  print('File exists!')}
-
   # connect to wwhypda sqlite
   # ===========================================================================
-
-  con = dbConnect(SQLite(),
-                  dbname = db_loc)
-                  #dbname="/home/fhesse/Dropbox/prior_derivation/work/geostatDB/data/wwhypda.sqlite")
-                  #dbname="../data/wwhypda.sqlite")
+  db_loc <- system.file("extdata", "wwhypda.sqlite", package="geostatDB")
+  con = dbConnect(SQLite(), dbname = db_loc)
 
   # sanity checks: ensure that rock type, parameter, and site are valid
   # ===========================================================================
   info <- geostatDB::viewInfo()
-
   print(info)
 
   if (!(is.null(rockType)) && !(grepl(rockType, info$rockTypes)))
@@ -56,7 +41,6 @@ getData <- function(rockType=NULL,
 
   if (!(is.null(param)) && !(grepl(param, info$parameters)))
     stop (paste(parameter, "not in database. use viewInfo()=TRUE to see available parameters!"))
-
 
   # extract data
   # ===========================================================================
@@ -98,7 +82,6 @@ getData <- function(rockType=NULL,
 
   # specifying rock type, param, site
   # ===========================================================================
-
   if ( !(is.null(rockType)) ){basic_data <- basic_data[which(basic_data$rt_name %in% rockType),]}
   if ( !(is.null(param)) ){basic_data <- basic_data[which(basic_data$param_name %in% param),]}
   if ( !(is.null(site)) ){basic_data <- basic_data[which(basic_data$site_name %in% site),]}
@@ -119,6 +102,7 @@ getData <- function(rockType=NULL,
   basic_data$param_not[which(basic_data$param_not == "effective porosity")] <- "ne"
 
   # close connection
+  # ===========================================================================
   dbDisconnect(con) # close connection
 
   if(viewInfo)
