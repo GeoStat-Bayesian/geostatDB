@@ -15,7 +15,7 @@ viewInfo <- function()
   # connect to wwhypda sqlite
   # ===========================================================================
   db_loc <- system.file("extdata", "wwhypda.sqlite", package="geostatDB")
-  con = dbConnect(SQLite(), dbname = db_loc)
+  con = RSQLite::dbConnect(RSQLite::SQLite(), dbname = db_loc)
 
   # get info from wwhypda sqlite
   # ===========================================================================
@@ -24,11 +24,11 @@ viewInfo <- function()
   all_params <- DBI::dbGetQuery(con, "select distinct param_name from parameter;")
 
   colnames(all_rocks) <- NULL; colnames(all_sites) <- NULL; colnames(all_params) <- NULL
-  all_sites <- na.omit(all_sites)
+  all_sites <- stats::na.omit(all_sites)
 
   # disconnect from wwhypda sqlite
   # ===========================================================================
-  dbDisconnect(con) # close connection
+  RSQLite::dbDisconnect(con) # close connection
 
   return(
     list("parameters" = all_params,

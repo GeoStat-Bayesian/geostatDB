@@ -26,7 +26,7 @@ getData <- function(rockType=NULL,
   # connect to wwhypda sqlite
   # ===========================================================================
   db_loc <- system.file("extdata", "wwhypda.sqlite", package="geostatDB")
-  con = dbConnect(SQLite(), dbname = db_loc)
+  con = RSQLite::dbConnect(RSQLite::SQLite(), dbname = db_loc)
 
   # sanity checks: ensure that rock type, parameter, and site are valid
   # ===========================================================================
@@ -64,7 +64,7 @@ getData <- function(rockType=NULL,
   join country as co on co.ISO_code = si.iso_country
   order by id_Measure;"
 
-  basic_data <- dbGetQuery(con, basic_query)
+  basic_data <- RSQLite::dbGetQuery(con, basic_query)
 
   # # all rock types
   # rocktypes <- dbGetQuery(con,
@@ -103,7 +103,7 @@ getData <- function(rockType=NULL,
 
   # close connection
   # ===========================================================================
-  dbDisconnect(con) # close connection
+  RSQLite::dbDisconnect(con) # close connection
 
   if(viewInfo)
   {
