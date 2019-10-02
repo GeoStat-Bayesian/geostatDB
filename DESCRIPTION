@@ -15,7 +15,7 @@ Description: The World-Wide Hydrogeological Parameters DAtabase (WWHYPDA) is
 Depends:
 	R (>= 3.2.2),
 	RSQLite
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
