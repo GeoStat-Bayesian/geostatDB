@@ -1,0 +1,33 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# geostatDB
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of geostatDB is to provide a unified interface for R packages to databases containing geostatistical data, with a focus on subsurface applications. Currently, we support the World-Wide Hydrological Parameters DAtabase, the largest open-access database for hydrogeological paramters.
+
+## Installation
+
+geostatDB is not ye on CRAN. You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("GeoStat-Bayesian/geostatDB")
+```
+## Example
+
+For an example of the package, we refer to the vignette.
