@@ -5,7 +5,7 @@ geostatDB
 
 <!-- badges: start -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://travis-ci.org/<github username>/<reponame>.svg?branch=master)](https://travis-ci.org/<github username>/<repo name>)
+[![Build Status](https://travis-ci.org/GeoStat-Bayesian/geostatDB.svg?branch=master)](https://travis-ci.org/GeoStat-Bayesian/geostatDB)
 <!-- badges: end -->
 
 The goal of geostatDB is to provide a unified interface for R packages to databases containing geostatistical data, with a focus on subsurface applications. Currently, we support the World-Wide Hydrological Parameters DAtabase, the largest open-access database for hydrogeological paramters.
