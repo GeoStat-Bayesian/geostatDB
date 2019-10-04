@@ -26,5 +26,6 @@ Suggests:
     rmarkdown,
     ggplot2,
     dplyr,
-    testthat
+    testthat,
+    covr
 VignetteBuilder: knitr
