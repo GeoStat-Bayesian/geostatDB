@@ -1,7 +1,7 @@
 Package: geostatDB
 Type: Package
 Title: Interface for geostatistical data 
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
 	person("Falk", "Hesse", email = "falk.hesze@gmail.com", role = "cre"),
 	person("Nura", "Kawa", email = "nkawa@berkeley.edu", role = "aut"),
