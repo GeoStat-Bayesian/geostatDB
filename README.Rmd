@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # geostatDB
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.org/GeoStat-Bayesian/geostatDB.svg?branch=master)](https://travis-ci.org/GeoStat-Bayesian/geostatDB)
 <!-- badges: end -->
 
 The goal of geostatDB is to provide a unified interface for R packages to databases containing geostatistical data, with a focus on subsurface applications. Currently, we support the World-Wide Hydrological Parameters DAtabase, the largest open-access database for hydrogeological paramters.
