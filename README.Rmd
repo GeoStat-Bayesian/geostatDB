@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Travis build status](https://travis-ci.org/GeoStat-Bayesian/geostatDB.svg?branch=master)](https://travis-ci.org/GeoStat-Bayesian/geostatDB)
+[![Codecov test coverage](https://codecov.io/gh/GeoStat-Bayesian/geostatDB/branch/master/graph/badge.svg)](https://codecov.io/gh/GeoStat-Bayesian/geostatDB?branch=master)
 [![Coveralls test coverage](https://coveralls.io/repos/github/GeoStat-Bayesian/geostatDB/badge.svg)](https://coveralls.io/r/GeoStat-Bayesian/geostatDB?branch=master)
 <!-- badges: end -->
 
