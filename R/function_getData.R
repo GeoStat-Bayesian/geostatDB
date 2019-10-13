@@ -32,7 +32,7 @@ getData <- function(rockType=NULL,
   # sanity checks: ensure that rock type, parameter, and site are valid
   # ===========================================================================
   info <- geostatDB::viewInfo()
-  print(info)
+  #print(info)
 
   if (!(is.null(rockType)) && !(grepl(rockType, info$rockTypes)))
     stop (paste(rockType, "not in database. use viewInfo()=TRUE to see available rock types!"))
